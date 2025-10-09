@@ -28,20 +28,16 @@ public class ClickLogic : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-       
+        smashedTimes = 0;
+        smashingTime = 10f;
+        isTimeActive = true;        
     }
 
     // Update is called once per frame
     void Update()
-    {
-        if (smashingTime <= 0)
-        {
-            isTimeActive = false;
-            golem.GetComponent<Golem>().enabled = true;
-            //gameController.GetComponent<ClickLogic>().enabled = false;
+    {   
 
-        }
-        
+
         if (isTimeActive == true)
         {
             //countdown from 10 to 0 clamped, avg run time = 10seconds.
@@ -59,14 +55,6 @@ public class ClickLogic : MonoBehaviour
                 Debug.Log(smashedTimes);
             }
         }
-        else
-        {
-            if (Input.GetKeyDown("space"))
-            {
-                smashedTimes = 0;
-                smashingTime = 10f;
-                isTimeActive = true;
-            }
-        }
+       
     }
 }
